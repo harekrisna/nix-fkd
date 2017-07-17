@@ -1,16 +1,16 @@
-<?php //netteCache[01]000389a:2:{s:4:"time";s:21:"0.57215000 1451038943";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"/data/www/virtuals/jamuna/html/nix/app/templates/Persons/list.latte";i:2;i:1451038942;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000395a:2:{s:4:"time";s:21:"0.13588200 1456215051";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"/data/web/virtuals/91735/virtual/www/nix/app/templates/Persons/list.latte";i:2;i:1456214488;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
-// source file: /data/www/virtuals/jamuna/html/nix/app/templates/Persons/list.latte
+// source file: /data/web/virtuals/91735/virtual/www/nix/app/templates/Persons/list.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'uglq2ofvsv')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'h3cztos2vr')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbe7acb414fc_head')) { function _lbe7acb414fc_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lb82673439f7_head')) { function _lb82673439f7_head($_l, $_args) { extract($_args)
 ?><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9ySGrKGQZxPaYTRf7SdwUNTNPNldzjBc&sensor=false"></script>
 <?php
 }}
@@ -18,7 +18,7 @@ if (!function_exists($_l->blocks['head'][] = '_lbe7acb414fc_head')) { function _
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb7da2f40c1d_content')) { function _lb7da2f40c1d_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb097516e26d_content')) { function _lb097516e26d_content($_l, $_args) { extract($_args)
 ?><ul id="paraler-menu"><li>Osoby</li><div>|</div><li><a href="<?php echo htmlSpecialChars($_control->link("add")) ?>
 ">Nová duše</a></li></ul>
 <hr style="clear: both; margin-bottom: 5px;" />
@@ -51,7 +51,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb7da2f40c1d_content')) { func
 <div id="list-container">
 <div id="<?php echo $_control->getSnippetId('personsList') ?>"><?php call_user_func(reset($_l->blocks['_personsList']), $_l, $template->getParameters()) ?>
 </div></div>
-<?php Nette\Latte\Macros\CoreMacros::includeTemplate("paginator.latte", $template->getParameters(), $_l->templates['uglq2ofvsv'])->render()  ?>
+<?php Nette\Latte\Macros\CoreMacros::includeTemplate("paginator.latte", $template->getParameters(), $_l->templates['h3cztos2vr'])->render()  ?>
 <div id="<?php echo $_control->getSnippetId('personInfo') ?>"><?php call_user_func(reset($_l->blocks['_personInfo']), $_l, $template->getParameters()) ?>
 </div>
 
@@ -66,7 +66,7 @@ disablePersonForm();
 //
 // block _personsList
 //
-if (!function_exists($_l->blocks['_personsList'][] = '_lbc7c0738ed0__personsList')) { function _lbc7c0738ed0__personsList($_l, $_args) { extract($_args); $_control->validateControl('personsList')
+if (!function_exists($_l->blocks['_personsList'][] = '_lb4bb4101621__personsList')) { function _lb4bb4101621__personsList($_l, $_args) { extract($_args); $_control->validateControl('personsList')
 ?>  <table id="persons-list">
   <tbody>
 <?php $iterations = 0; foreach ($persons as $person): ?>
@@ -114,7 +114,7 @@ if (!function_exists($_l->blocks['_personsList'][] = '_lbc7c0738ed0__personsList
 //
 // block _personInfo
 //
-if (!function_exists($_l->blocks['_personInfo'][] = '_lba6ab887901__personInfo')) { function _lba6ab887901__personInfo($_l, $_args) { extract($_args); $_control->validateControl('personInfo')
+if (!function_exists($_l->blocks['_personInfo'][] = '_lb155d99c0ce__personInfo')) { function _lb155d99c0ce__personInfo($_l, $_args) { extract($_args); $_control->validateControl('personInfo')
 ;if (isset($person_id)): ?>
         <ul id="tabs">
             <li class="active"><a rel="general_info">Obecné</a></li>
@@ -387,7 +387,7 @@ if (!function_exists($_l->blocks['_personInfo'][] = '_lba6ab887901__personInfo')
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lb42df26ecf3_scripts')) { function _lb42df26ecf3_scripts($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['scripts'][] = '_lb4cf7865f3b_scripts')) { function _lb4cf7865f3b_scripts($_l, $_args) { extract($_args)
 ?><script type='text/javascript' src="<?php echo htmlSpecialChars($basePath) ?>/js/person_list.js"></script>
 <?php
 }}

@@ -35,6 +35,7 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
     $row = $this->users->findByName($username);
     
     /*
+    echo $password."<br />";
     echo $row->password."<br />";
     echo self::calculateHash($password, "hash");
     exit;

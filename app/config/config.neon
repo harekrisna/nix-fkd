@@ -22,9 +22,9 @@ common:
 
 		database:
 			default:
-				dsn: 'mysql:host=localhost;dbname=jamuna'
-				user: root
-				password: root
+				dsn: 'mysql:host=wm80.wedos.net;dbname=d91735_nix'
+				user: w91735_nix
+				password: c32Tp7P5
 		
 	services:
 		authenticator: PBData\Authenticator

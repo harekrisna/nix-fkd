@@ -116,9 +116,8 @@ class Session extends Nette\Object
 		if (empty($nf)) { // new session
 			$nf = array('C' => 0);
 		} else {
-    		if(isset($nf['C'])) {
-    			$nf['C']++;
-            }    			
+			if(isset($nf['C']))
+				$nf['C']++;
 		}
 
 		// session regenerate every 30 minutes

@@ -1,16 +1,16 @@
-<?php //netteCache[01]000388a:2:{s:4:"time";s:21:"0.99615900 1420903365";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"/data/www/virtuals/jamuna/html/nix/app/templates/Search/form.latte";i:2;i:1420903043;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000388a:2:{s:4:"time";s:21:"0.12323300 1452508720";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"/data/www/virtuals/jamuna/html/nix/app/templates/Search/form.latte";i:2;i:1452508713;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
 // source file: /data/www/virtuals/jamuna/html/nix/app/templates/Search/form.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'aou2g13wji')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '4k4sd4e6ix')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb7785316e4d_content')) { function _lb7785316e4d_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbda31f38d19_content')) { function _lbda31f38d19_content($_l, $_args) { extract($_args)
 ;call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())  ?>
 <fieldset>
   <legend>Kritéria</legend>
@@ -55,7 +55,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb7785316e4d_content')) { func
 		  <tr>
 		  	<th><?php if ($_label = $_form["select_membership_cat_id"]->getLabel()) echo $_label->addAttributes(array()) ?>
 </th><td><?php echo $_form["select_membership_cat_id"]->getControl()->addAttributes(array()) ?></td>
-        <th><?php if ($_label = $_form["select_region_id"]->getLabel()) echo $_label->addAttributes(array()) ?>
+		  	<th><?php if ($_label = $_form["select_region_id"]->getLabel()) echo $_label->addAttributes(array()) ?>
 </th><td><?php echo $_form["select_region_id"]->getControl()->addAttributes(array()) ?></td>
 		  </tr>
 		  <tr>
@@ -65,6 +65,10 @@ if (!function_exists($_l->blocks['content'][] = '_lb7785316e4d_content')) { func
 		  <tr>
 		  	<th><?php if ($_label = $_form["select_develop_potential_id"]->getLabel()) echo $_label->addAttributes(array()) ?>
 </th><td><?php echo $_form["select_develop_potential_id"]->getControl()->addAttributes(array()) ?></td>
+		  </tr>
+		  <tr>
+		  	<th><?php if ($_label = $_form["checkbox_bv_active"]->getLabel()) echo $_label->addAttributes(array()) ?>
+</th><td><?php echo $_form["checkbox_bv_active"]->getControl()->addAttributes(array()) ?></td>
 		  </tr>
 		  <tr>
 		  	<th><?php if ($_label = $_form["search"]->getLabel()) echo $_label->addAttributes(array()) ?>
@@ -115,7 +119,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb7785316e4d_content')) { func
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb5da6514af7_title')) { function _lb5da6514af7_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lb329c1b1e59_title')) { function _lb329c1b1e59_title($_l, $_args) { extract($_args)
 ?><h1>Vyhledávání</h1>
 <?php
 }}
@@ -123,7 +127,7 @@ if (!function_exists($_l->blocks['title'][] = '_lb5da6514af7_title')) { function
 //
 // block _personInfo
 //
-if (!function_exists($_l->blocks['_personInfo'][] = '_lb181df95fa8__personInfo')) { function _lb181df95fa8__personInfo($_l, $_args) { extract($_args); $_control->validateControl('personInfo')
+if (!function_exists($_l->blocks['_personInfo'][] = '_lbc0eb52e908__personInfo')) { function _lbc0eb52e908__personInfo($_l, $_args) { extract($_args); $_control->validateControl('personInfo')
 ;if (isset($person_id)): ?>
         <ul id="tabs">
             <li class="active"><a rel="general_info">Obecné</a></li>
@@ -202,6 +206,10 @@ if (!function_exists($_l->blocks['_personInfo'][] = '_lb181df95fa8__personInfo')
             <th rowspan="5" colspan="2"></th>
 		  </tr>
 		  <tr>
+		    <th><?php if ($_label = $_form["data-bv_active"]->getLabel()) echo $_label->addAttributes(array()) ?>
+</th><td><?php echo $_form["data-bv_active"]->getControl()->addAttributes(array()) ?></td>
+		  </tr>
+		  <tr>
 		    <th><?php if ($_label = $_form["data-guru_id"]->getLabel()) echo $_label->addAttributes(array()) ?>
 </th><td><?php echo $_form["data-guru_id"]->getControl()->addAttributes(array()) ?></td>
 		  </tr>
@@ -212,6 +220,18 @@ if (!function_exists($_l->blocks['_personInfo'][] = '_lb181df95fa8__personInfo')
 		  <tr>
 		  	<th><?php if ($_label = $_form["update"]->getLabel()) echo $_label->addAttributes(array()) ?>
 </th><td><?php echo $_form["update"]->getControl()->addAttributes(array()) ?></td>
+		  </tr>
+		  <tr>
+            <th></th><td class="empty"></td>
+            <th></th><td class="empty"></td>
+            <th colspan="2">
+<?php if (isset($person_id)): ?>
+                  <a class="ajax_remove" href="<?php echo htmlSpecialChars($_control->link("deletePerson!", array($person_id))) ?>
+">
+		  	          <img src="<?php echo htmlSpecialChars($basePath) ?>/images/remove.png" />
+                  </a>
+<?php endif ?>
+            </th>
 		  </tr>
         </table>
         </div>

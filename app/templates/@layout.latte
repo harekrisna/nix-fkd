@@ -35,7 +35,7 @@
         <div class="menu">
           <a {ifCurrent Persons:*}class="current"{/ifCurrent} href="{link Persons:list}">Osoby</a>
           <a {ifCurrent Search:*}class="current"{/ifCurrent} href="{link Search:form}">Vyhledávání</a>
-          <a {ifCurrent Map:*}class="current"{/ifCurrent} href="{link Map:map}">Mapa</a>
+          <!--<a {ifCurrent Map:*}class="current"{/ifCurrent} href="{link Map:map}">Mapa</a>-->
         </div>
         {if $user->isLoggedIn()}
         <div class="user">      

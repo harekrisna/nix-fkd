@@ -1,16 +1,16 @@
-<?php //netteCache[01]000388a:2:{s:4:"time";s:21:"0.34921300 1452508671";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"/data/www/virtuals/jamuna/html/nix/app/templates/Persons/add.latte";i:2;i:1452507953;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000394a:2:{s:4:"time";s:21:"0.82295900 1456215096";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"/data/web/virtuals/91735/virtual/www/nix/app/templates/Persons/add.latte";i:2;i:1456214488;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
-// source file: /data/www/virtuals/jamuna/html/nix/app/templates/Persons/add.latte
+// source file: /data/web/virtuals/91735/virtual/www/nix/app/templates/Persons/add.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '1htcnkcw4r')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '8lw16l0b80')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb98c7058991_content')) { function _lb98c7058991_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb6976200897_content')) { function _lb6976200897_content($_l, $_args) { extract($_args)
 ?><ul id="paraler-menu"><li><a href="<?php echo htmlSpecialChars($_control->link("list")) ?>
 ">Osoby</a></li><div>|</div><li>Nová duše</li></ul>
 <hr style="clear: both; margin-bottom: 5px;" />
