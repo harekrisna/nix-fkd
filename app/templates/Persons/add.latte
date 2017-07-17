@@ -1,0 +1,91 @@
+{block content}
+<ul id="paraler-menu"><li><a n:href="list">Osoby</a></li><div>|</div><li>Nová duše</li></ul>
+<hr style="clear: both; margin-bottom: 5px;" />
+<fieldset>
+    <legend>Vložit záznam</legend>
+    {form personForm}
+    {control $form errors}
+    <table>
+      <tr>
+		  	<th>{label data-name /}</th><td>{input data-name }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-surname /}</th><td>{input data-surname }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-spiritual_name /}</th><td>{input data-spiritual_name }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-das /}</th><td>{input data-das }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label birth_day /}</th><td>{input birth_day }{input birth_month class => month }{input birth_year class => year }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-leadership_id /}</th><td>{input data-leadership_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-centre_id /}</th><td>{input data-centre_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-zone_id /}</th><td>{input data-zone_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-email /}</th><td>{input data-email }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-phone /}</th><td>{input data-phone }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-city /}</th><td>{input data-city }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-street /}</th><td>{input data-street }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-zip /}</th><td>{input data-zip }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-region_id /}</th><td>{input data-region_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-membership_lvl_id /}</th><td>{input data-membership_lvl_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-spiritual_lvl_id /}</th><td>{input data-spiritual_lvl_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-membership_cat_id /}</th><td>{input data-membership_cat_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-care_type_id /}</th><td>{input data-care_type_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-develop_potential_id /}</th><td>{input data-develop_potential_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>&nbsp;</th><td>{input data-leader }{label data-leader /}</td>
+		  </tr>		
+		  <tr>
+		  	<th>&nbsp;</th><td>{input data-send_news }{label data-send_news /}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label image /}</th><td>{input image }</td>
+		  </tr>
+		  <tr>
+		  	<td colspan="2">{input create }</td>
+		  </tr>
+    </table>
+    {/form}
+</fieldset>
+<script>
+$('form[name=personForm]').submit(function() {
+  if($('input#frmpersonForm-data-name').val() == "" && 
+     $('input#frmpersonForm-data-surname').val() == "" && 
+     $('input#frmpersonForm-data-spiritual_name').val() == "") {
+    alert("Je nutné zadat příjmení nebo duchovní jméno.");
+    return false;
+  }
+});
+</script>             
+{/block}

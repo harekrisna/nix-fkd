@@ -1,0 +1,59 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+common:
+	parameters:
+
+	php:
+		date.timezone: Europe/Prague
+		# zlib.output_compression: yes
+
+
+	nette:
+		application:
+			errorPresenter: Error
+
+		session:
+			autostart: smart
+			expiration: +30 days
+
+		database:
+			default:
+				dsn: 'mysql:host=localhost;dbname=jamuna'
+				user: root
+				password: root
+		
+	services:
+		authenticator: PBData\Authenticator
+		
+		sessionPanel:
+			class: SessionPanel
+			arguments:
+				- @application
+				- @session
+		
+		persons: PBData\Persons
+		centres: PBData\Centres
+		category: PBData\Category
+		zones: PBData\Zones
+		membershipLvls: PBData\MembershipLvls
+		membershipCats: PBData\membershipCats
+		spiritualLvls: PBData\SpiritualLvls
+		careTypes: PBData\careTypes
+		developPotentials: PBData\developPotentials
+		bhaktiVriksaLevel: PBData\bhaktiVriksaLevel
+		users: PBData\Users
+		guru: PBData\Guru
+		regions: PBData\Regions
+		firstContact: PBData\FirstContact
+		firstContactHow: PBData\FirstContactHow
+
+	factories:
+
+
+production < common:
+
+development < common:

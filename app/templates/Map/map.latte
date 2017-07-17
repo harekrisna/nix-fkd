@@ -1,0 +1,44 @@
+{block content}
+
+<h1 n:block="title">Mapa</h1>
+  <div id="map-canvas"/>     
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9ySGrKGQZxPaYTRf7SdwUNTNPNldzjBc&sensor=false"></script>
+  <script type="text/javascript">
+    var mapOptions = {
+      center: new google.maps.LatLng(49.815, 15.5),
+      zoom: 8
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map-canvas"),
+        mapOptions);
+
+    geocoder = new google.maps.Geocoder();
+    
+    function placeMarker(map, x, y, title, address, color) {
+          
+      var infowindow = new google.maps.InfoWindow({
+        content: '<div style="width: 100px">'+title+'</div>'
+      });
+          
+      var marker = new google.maps.Marker({
+            map: map, 
+            icon: 'http://maps.google.com/mapfiles/ms/icons/'+color+'-dot.png',
+            animation: google.maps.Animation.DROP,
+            position: new google.maps.LatLng(x, y),
+            title: address,
+          });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
+    }
+    
+  </script>
+  <script type="text/javascript">  
+    {dump $markers}
+  {foreach $markers as $marker}
+    {dump $marker}
+    placeMarker(map, {$marker['latitude']}, {$marker['longitude']}, {$marker['title']}, {$marker['address']}, {$marker['color']});
+  {/foreach}
+  </script>
+{/block}

@@ -1,0 +1,1 @@
+[2012-09-01 12-24-21] HTTP code 404: Cannot load presenter 'Lol', class 'LolPresenter' was not found in '/www/sites/7/site14857/public_html/app/presenters/LolPresenter.php'. in /www/sites/7/site14857/public_html/libs/Nette/Application/Application.php:123  @  http://www.pbdata.php5.cz/db/lol

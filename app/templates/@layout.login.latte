@@ -1,0 +1,36 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Prabhupad Bhavan Database">
+  <meta name="robots" content="{$robots}" n:ifset="$robots">
+
+  <title>{block title|striptags}PB Database{/block}</title>
+
+  <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css" type="text/css">
+  <link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
+  <link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="{$basePath}/css/smoothness/jquery-ui-1.8.23.custom.css">
+  <script type="text/javascript" src="{$basePath}/js/jquery.js"></script>   
+  <script type="text/javascript" src="{$basePath}/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
+  <script type='text/javascript' src="{$basePath}/js/timepicker.js"></script>
+  <script type='text/javascript' src="{$basePath}/js/scripts.js"></script>
+  {block head}{/block}
+</head>
+
+<body class="login_screen">  
+<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+  {include #content}
+</body>
+</html>

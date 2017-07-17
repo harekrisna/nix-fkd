@@ -1,0 +1,276 @@
+{block content}
+
+<h1 n:block="title">Vyhledávání</h1>
+<fieldset>
+  <legend>Kritéria</legend>
+		{form searchForm}
+		{control $form errors}
+		<table class="form">
+		  <tr>
+		  	<th>{label text_name /}</th><td>{input text_name }</td>
+		  	<th>{label text_email /}</th><td>{input text_email }</td>
+		  	<th>{label select_leadership_id /}</th><td>{input select_leadership_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label text_surname /}</th><td>{input text_surname }</td>
+		  	<th>{label text_phone /}</th><td>{input text_phone }</td>
+		  	<th>{label select_centre_id /}</th><td>{input select_centre_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label text_spiritual_name /}</th><td>{input text_spiritual_name }</td>
+		  	<th>{label text_city /}</th><td>{input text_city }</td>
+		  	<th>{label select_zone_id /}</th><td>{input select_zone_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label select_membership_lvl_id /}</th><td>{input select_membership_lvl_id }</td>
+		  	<th>{label text_street /}</th><td>{input text_street }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label select_spiritual_lvl_id /}</th><td>{input select_spiritual_lvl_id }</td>
+		  	<th>{label text_zip /}</th><td>{input text_zip }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label select_membership_cat_id /}</th><td>{input select_membership_cat_id }</td>
+		  	<th>{label select_region_id /}</th><td>{input select_region_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label select_care_type_id /}</th><td>{input select_care_type_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label select_develop_potential_id /}</th><td>{input select_develop_potential_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label checkbox_bv_active /}</th><td>{input checkbox_bv_active }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label search /}</th><td>{input search}</td>
+		  </tr>
+		</table>
+    {/form}  
+</fieldset>
+{if $persons}<h2>Počet výsledků {$persons->count()}:</h2>
+<table id="persons-list" style="margin-bottom: 20px;">
+  <tbody>
+  {foreach $persons as $person}  
+    <tr id="{link detailPerson! $person->id}" name="pid_{$person->id}" class="ajax{if isset($detail_person) && $detail_person["id"] == $person->id} current{/if}" >
+        <td class="icon">{ifset $person->centre->id}<img src="{$basePath}/images/icons/{$person->centre->icon}" title="{$person->centre->title}" />{/ifset}</td>
+        <td class="leadership">{ifset $person->leadership->id}{$person->leadership->subject}{/ifset}</td>
+        <td class="subject {$person->das}">{$person->subject}</td>
+        <td class="zone">{ifset $person->zone->title}{$person->zone->title}{/ifset}</td>
+        <td class="region">{ifset $person->region->title}{$person->region->title}{/ifset}</td>
+    	<td class="city">{$person->street}{if $person->street != "" && $person->city != ""}, {/if}{$person->city}</td>
+    	<td class="icon">{ifset $person->spiritual_lvl->id}<img src="{$basePath}/images/icons/{$person->spiritual_lvl->icon}" title="{$person->spiritual_lvl->title}" />{/ifset}</td>
+    	<td class="icon">{ifset $person->membership_lvl->id}<img src="{$basePath}/images/icons/{$person->membership_lvl->icon}" title="{$person->membership_lvl->title}" />{/ifset}</td>
+    	<td class="icon">{ifset $person->membership_cat->id}<img src="{$basePath}/images/icons/{$person->membership_cat->icon}" title="{$person->membership_cat->title}" />{/ifset}</td>
+    	<td class="icon">{ifset $person->develop_potential->id}<img src="{$basePath}/images/icons/{$person->develop_potential->icon}" title="{$person->develop_potential->title}" />{/ifset}</td>
+    	<td class="icon">{ifset $person->care_type->id}<img src="{$basePath}/images/icons/{$person->care_type->icon}" title="{$person->care_type->title}" />{/ifset}</td>
+    </tr>
+  {/foreach}              
+  </tbody>
+  </table>
+  {snippet personInfo}
+    {ifset $person_id}
+        <ul id="tabs">
+            <li class="active"><a rel="general_info">Obecné</a></li>
+            <li><a rel="spirit_dev">Duchovní vývoj</a></li>
+            <li><a rel="events">Události</a></li>
+            <li><a rel="location">Poloha</a></li>
+            <li><a rel="record">Záznam</a></li>
+            <li><a rel="note">Poznámka</a></li>
+        </ul>
+    {else}
+        <ul id="tabs">
+            <li><div>Obecné</div></li>
+            <li><div>Duchovní vývoj</div></li>
+            <li><div>Události</div></li>
+            <li><div>Poloha</div></li>
+            <li><div>Záznam</div></li>
+            <li><div>Poznámka</div></li>            
+        </ul>
+    {/ifset}
+    <div id="tab_content" style="min-height: 340px;">
+        {form personForm class => ajax}
+	    {control $form errors}
+        <div id="general_info">
+		<table class="form">
+		  <tr>
+		  	<th>{label data-name /}</th><td>{input data-name }</td>
+		  	<th>{label data-email /}</th><td>{input data-email }</td>
+		  	<th>{label data-leadership_id /}</th><td>{input data-leadership_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-surname /}</th><td>{input data-surname }</td>
+		  	<th>{label data-phone /}</th><td>{input data-phone }</td>
+		  	<th>{label data-centre_id /}</th><td>{input data-centre_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-subject /}</th><td>{input data-subject }</td>
+		  	<th>{label data-city /}</th><td>{input data-city }</td>
+		  	<th>{label data-zone_id /}</th><td>{input data-zone_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-spiritual_name /}</th><td>{input data-spiritual_name }</td>
+		  	<th>{label data-street /}</th><td>{input data-street }</td>
+		  	<th>{label data-zone2_id /}</th><td>{input data-zone2_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label birth_day /}</th><td>{input birth_day }{input birth_month class => month }{input birth_year class => year }</td>
+		  	<th>{label data-zip /}</th><td>{input data-zip }</td>
+		  	<th>{label data-zone3_id /}</th><td>{input data-zone3_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-das /}</th><td>{input data-das }</td>
+            <th>{label data-region_id /}</th><td>{input data-region_id }</td>
+            <th rowspan="5" colspan="2">{ifset $detail_person['image']}<img class="person_picture" src="{$basePath}/images/persons/{$detail_person['image']}" />{/ifset}</th>
+		  </tr>
+		  <tr>
+		    <th>{label data-leader /}</th><td>{input data-leader }</td>
+            <th rowspan="5" colspan="2"></th>
+		  </tr>
+		  <tr>
+		    <th>{label data-bv_active /}</th><td>{input data-bv_active }</td>
+		  </tr>
+		  <tr>
+		    <th>{label data-guru_id /}</th><td>{input data-guru_id }</td>
+		  </tr>
+		  <tr>
+		    <th>{label data-category_id /}</th><td>{input data-category_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label update /}</th><td>{input update}</td>
+		  </tr>
+		  <tr>
+            <th></th><td class="empty"></td>
+            <th></th><td class="empty"></td>
+            <th colspan="2">
+            {ifset $person_id}
+                  <a class="ajax_remove" n:href="deletePerson! $person_id">
+		  	          <img src="{$basePath}/images/remove.png" />
+                  </a>
+            {/ifset}
+            </th>
+		  </tr>
+        </table>
+        </div>
+        
+        <div id="spirit_dev">
+        <table class="form" style="width: 855px;">
+		  <tr>
+		  	<th>{label data-membership_lvl_id /}</th><td>{input data-membership_lvl_id}</td>
+		  	<th></th><td>První kontakt:</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-spiritual_lvl_id /}</th><td>{input data-spiritual_lvl_id}</td>
+		  	<th>{label first_contact-contact_how /}</th><td>{input first_contact-contact_how}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-membership_cat_id /}</th><td>{input data-membership_cat_id}</td>
+		  	<th>{label first_contact-contact_id /}</th><td>{input first_contact-contact_id}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-care_type_id /}</th><td>{input data-care_type_id}</td>
+		  	<th>{label first_contact-contact_when /}</th><td>{input first_contact-contact_when}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-develop_potential_id /}</th><td>{input data-develop_potential_id}</td>
+		  	<th>{label first_contact-contact_where /}</th><td>{input first_contact-contact_where}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-bhakti_vriksa_lvl_id /}</th><td>{input data-bhakti_vriksa_lvl_id}</td>
+		  </tr>
+		  <tr>
+  		  	<th>{label update /}</th><td>{input update}</td>
+		  </tr>
+        </table>
+        </div>
+        
+        <div id="events">
+            Události
+        </div>
+        <div id="location">
+        <table class="form slim" style="width: 500px;">
+		  <tr>
+		  	<th>Bydliště:</th><td>{$address}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-latitude /}</th><td>{input data-latitude}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-longitude /}</th><td>{input data-longitude}&nbsp;{input calc_location}</td>
+		  </tr>
+		  <tr>
+  		  	<th>{label update /}</th><td>{input update}</td>
+		  </tr>
+        </table>
+        </div>
+        <div id="record">
+        <table class="form" style="width: 500px;">
+		  <tr>
+		  	<th style="width: 150px">{label data-created /}</th><td>{input data-created }</td>  
+		  </tr>
+		  <tr>
+		  	<th>{label data-last_update /}</th><td>{input data-last_update}</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-user_created_id /}</th><td>{input data-user_created_id }</td>
+		  </tr>
+		  <tr>
+		  	<th>{label data-send_news /}</th><td>{input data-send_news }</td>
+		  </tr>
+		  <tr>
+  		  	<th>{label update /}</th><td>{input update}</td>
+		  </tr>
+        </table>
+        </div>
+        <div id="note">
+            <table class="form slim" style="margin-left: 15px;">
+                <tr>
+                    <th style="text-align: left;">{label data-note /}</th>
+                </tr>
+                <tr>
+                    <td>{input data-note}</td>
+                </tr>
+                <tr>
+                    <td>{input update}</td>
+                </tr>
+
+            </table>
+        </div>
+        {/form} 
+    </div>
+
+<script>
+    $('#tabs a').click(function() {
+        $('#tab_content form > div').hide();
+        $('#tab_content #' + this.rel).show();
+        $('#tabs li').removeClass('active');
+        $(this).parent('li').addClass('active');
+        return false;
+    });
+    
+  $(function() {
+    $.datepicker.regional['cs'] = { 
+                 closeText: 'Cerrar', 
+                 prevText: 'Předchozí', 
+                 nextText: 'Další', 
+                 currentText: 'Hoy', 
+                 monthNames: ['Leden','Únor','Březen','Duben','Květen','Červen', 'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'],
+                 monthNamesShort: ['Le','Ún','Bř','Du','Kv','Čn', 'Čc','Sr','Zá','Ří','Li','Pr'], 
+                 dayNames: ['Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota'], 
+                 dayNamesShort: ['Ne','Po','Út','St','Čt','Pá','So',], 
+                 dayNamesMin: ['Ne','Po','Út','St','Čt','Pá','So'], 
+                 weekHeader: 'Sm', 
+                 dateFormat: 'dd.mm.yy', 
+                 firstDay: 1, 
+                 isRTL: false, 
+                 showMonthAfterYear: false, 
+                 yearSuffix: ''}; 
+ 
+ 
+    $.datepicker.setDefaults($.datepicker.regional['cs']);
+    $( "#frmpersonForm-first_contact-contact_when").datepicker();
+  });
+</script>
+{/snippet}
+{/if}
+{/block}

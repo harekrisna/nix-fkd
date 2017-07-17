@@ -1,0 +1,6 @@
+        {form pictureForm} 
+            <table class="form picture">
+                <tr><th>{label image /}</th><td>{if isset($person_image) && $person_image == TRUE}{input delete_image}{else}{input image}{input upload_image}{/if}</td></tr>
+                <tr><th></th><td>{ifset $detail_person['image']}<img name="person_picture" src="{$basePath}/images/persons/{$detail_person['image']}" />{/ifset}</td></tr>
+            </table>
+        {/form}

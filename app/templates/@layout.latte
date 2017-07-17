@@ -1,0 +1,71 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="description" content="Prabhupad Bhavan Database">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title|striptags}PB Database{/block}</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css" type="text/css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/smoothness/jquery-ui-1.8.23.custom.css">
+	<script type="text/javascript" src="{$basePath}/js/jquery.js"></script>   
+	<script type="text/javascript" src="{$basePath}/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
+	<script type='text/javascript' src="{$basePath}/js/timepicker.js"></script>
+	<script type='text/javascript' src="{$basePath}/js/scripts.js"></script>
+	{block head}{/block}
+</head>
+
+<body>  
+<div id="header">
+    <div id="header-inner">
+        <div class="menu">
+          <a {ifCurrent Persons:*}class="current"{/ifCurrent} href="{link Persons:list}">Osoby</a>
+          <a {ifCurrent Search:*}class="current"{/ifCurrent} href="{link Search:form}">Vyhledávání</a>
+          <a {ifCurrent Map:*}class="current"{/ifCurrent} href="{link Map:map}">Mapa</a>
+        </div>
+        {if $user->isLoggedIn()}
+        <div class="user">      
+          <div class="loading">
+            <div class="circle"></div>
+            <div class="circle1"></div>
+          </div>
+          <span class="icon user">{$user->getIdentity()->fullname}</span> |
+          <!-- <a n:href="User:password">Změna hesla</a> | -->
+          <a n:href="signOut!">Odhlásit se</a>
+        </div>                  
+        {/if}
+    </div>
+</div>
+
+<div id="container">
+    <div id="content">
+      {snippet flashes}
+        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+        <script>
+        $('.flash').hide().fadeIn(800).delay(2800).fadeOut(800);
+        </script>
+      {/snippet}
+    {include #content}
+    </div>
+
+    <div id="footer">
+
+    </div>
+</div> 
+{block scripts}{/block}
+</body>
+</html>
